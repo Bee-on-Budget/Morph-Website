@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import adminLaptop from "../assets/images/admin-laptop-nobg.png";
 
 const About = () => {
   return (
@@ -6,18 +7,19 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2">
-            <img 
-              src="/assets/images/about-showroom.jpg" 
-              alt="Morph Facility" 
+            <img
+              src={adminLaptop}
+              alt="Morph Dashboard"
               className="rounded-lg shadow-xl"
             />
           </div>
           <div className="md:w-1/2">
             <h2 className="text-4xl font-bold mb-6">ABOUT Morph</h2>
             <p className="text-lg mb-6">
-              Established in 2025 Morph has become Dubai's premier automotive protection specialist. 
-              Our state-of-the-art facility in Al Quoz is equipped with climate-controlled bays 
-              and certified installation experts.
+              Established in 2025 Morph has become Dubai's premier automotive
+              protection specialist. Our state-of-the-art facility in Al Quoz is
+              equipped with climate-controlled bays and certified installation
+              experts.
             </p>
             <ul className="space-y-3">
               <li className="flex items-start">
