@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-green-600 text-white overflow-hidden hero-bg"
+      className="relative min-h-screen flex items-center bg-green-500 text-white overflow-hidden hero-bg"
     >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
@@ -45,7 +45,7 @@ const Hero = () => {
           </div>
 
           {/* HeroRightComponent - hidden on mobile, proper positioning on larger screens */}
-          <div className="hidden lg:flex items-center justify-center w-full lg:w-1/2">
+          <div className="flex items-center justify-center w-full lg:w-1/2">
             <div className="relative w-full max-w-xl">
               <HeroRightComponent className="w-full h-auto" />
             </div>
