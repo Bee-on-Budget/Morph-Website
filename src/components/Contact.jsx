@@ -70,7 +70,7 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-4">CONTACT US</h2>
-        <p className="text-xl text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 mx-auto mb-12 max-w-3xl text-center">
           Get in touch with our specialists
         </p>
 
