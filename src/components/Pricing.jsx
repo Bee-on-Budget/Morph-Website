@@ -58,13 +58,13 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 sm:py-20 bg-white">
+    <section id="pricing" className="py-16 sm:py-20 bg-green-500 hero-bg">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
             Our Prices
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 mx-auto max-w-2xl sm:max-w-3xl">
+          <p className="text-base sm:text-lg text-gray-300 mx-auto max-w-2xl sm:max-w-3xl">
             Choose the plan that fits your business needs
           </p>
         </div>
