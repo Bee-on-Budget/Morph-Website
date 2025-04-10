@@ -45,36 +45,6 @@ const About = () => {
                 help them exceed their goals with ease and confidence.
               </p>
             </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-1">Core Values</h4>
-              <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>
-                  <b>Integrity:</b> We value honesty and transparency in every
-                  conversation.
-                </li>
-                <li>
-                  <b>Customer-Centric:</b> Your goals are our priority, with
-                  support tailored to diverse markets.
-                </li>
-                <li>
-                  <b>Simplicity:</b> We make financial management intuitive and
-                  accessible.
-                </li>
-                <li>
-                  <b>Growth Mindset:</b> We embrace challenges and continuous
-                  improvement.
-                </li>
-                <li>
-                  <b>Innovation:</b> Constantly enhancing our tools to stay
-                  ahead.
-                </li>
-                <li>
-                  <b>Empowerment:</b> Giving businesses confidence to take bold
-                  steps forward.
-                </li>
-              </ul>
-            </div>
           </div>
 
           {/* Right Image Section */}
