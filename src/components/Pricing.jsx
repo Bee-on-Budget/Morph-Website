@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import correctSign from "../assets/svgs/Icons.webp.svg";
 
 const PricingSection = () => {
@@ -57,23 +58,53 @@ const PricingSection = () => {
     },
   ];
 
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <section id="pricing" className="py-16 sm:py-20 bg-green-500 hero-bg">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
             Our Prices
           </h2>
           <p className="text-base sm:text-lg text-gray-300 mx-auto max-w-2xl sm:max-w-3xl">
             Choose the plan that fits your business needs
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
+        >
           {packages.map((pkg) => (
-            <div
+            <motion.div
               key={pkg.id}
+              variants={item}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col"
+              whileHover={{ y: -5 }}
             >
               <div className="p-6 sm:p-8 flex flex-col h-full">
                 {/* Package Name */}
@@ -82,7 +113,13 @@ const PricingSection = () => {
                 </h3>
 
                 {/* Prices */}
-                <div className="mb-4 sm:mb-6">
+                <motion.div
+                  className="mb-4 sm:mb-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
                   <span className="text-xs sm:text-sm text-gray-900">
                     Starts from {pkg.currency}{" "}
                   </span>
@@ -95,34 +132,65 @@ const PricingSection = () => {
                   <span className="text-gray-600 text-xs sm:text-sm ml-1">
                     /month
                   </span>
-                </div>
+                </motion.div>
 
                 {/* Billed annually */}
-                <div className="bg-blue-50 p-2 sm:p-3 rounded-md mb-4 sm:mb-6">
+                <motion.div
+                  className="bg-blue-50 p-2 sm:p-3 rounded-md mb-4 sm:mb-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
                   <p className="text-xs sm:text-sm font-medium flex justify-between text-gray-700">
                     <span className="font-bold">Billed annually</span>
                     <span className="font-bold">
                       {pkg.currency} {pkg.annuallyBilled}
                     </span>
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Description */}
-                <p className="text-sm sm:text-base text-gray-600 h-20 sm:h-24 mb-4 sm:mb-6">
+                <motion.p
+                  className="text-sm sm:text-base text-gray-600 h-20 sm:h-24 mb-4 sm:mb-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
                   {pkg.description}
-                </p>
+                </motion.p>
 
                 {/* Contact button */}
-                <div className="mb-6">
+                <motion.div
+                  className="mb-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
                   <button className="w-full py-2 sm:py-3 text-sm sm:text-base rounded-md font-semibold transition-colors duration-300 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white">
                     Contact Sales
                   </button>
-                </div>
+                </motion.div>
 
                 {/* Features */}
-                <ul className="space-y-2 sm:space-y-3 border-t border-gray-200 pt-4 sm:pt-6 flex-grow">
+                <motion.ul
+                  className="space-y-2 sm:space-y-3 border-t border-gray-200 pt-4 sm:pt-6 flex-grow"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                >
                   {pkg.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
+                    <motion.li
+                      key={index}
+                      className="flex items-start"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 * index }}
+                    >
                       <img
                         src={correctSign}
                         alt="✓"
@@ -131,13 +199,13 @@ const PricingSection = () => {
                       <span className="text-xs sm:text-sm text-gray-700">
                         {feature}
                       </span>
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

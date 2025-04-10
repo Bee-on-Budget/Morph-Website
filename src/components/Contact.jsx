@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
@@ -65,25 +66,58 @@ const Contact = () => {
     },
   });
 
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <section id="contact" className="py-12 sm:py-16 bg-white">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4">
-          CONTACT US
-        </h2>
-        <p className="text-sm sm:text-base text-gray-600 mx-auto mb-8 sm:mb-12 max-w-2xl text-center">
-          Get in touch with our specialists
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8 sm:mb-12"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+            CONTACT US
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 mx-auto max-w-2xl">
+            Get in touch with our specialists
+          </p>
+        </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
-          <div className="lg:w-1/2">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col lg:flex-row gap-6 sm:gap-8"
+        >
+          {/* Contact Form */}
+          <motion.div variants={item} className="lg:w-1/2">
             <form
               ref={formRef}
               onSubmit={formik.handleSubmit}
               className="space-y-4 sm:space-y-6"
             >
               {submitStatus && (
-                <div
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   className={`p-3 sm:p-4 rounded ${
                     submitStatus.success
                       ? "bg-green-100 text-green-800"
@@ -91,57 +125,68 @@ const Contact = () => {
                   }`}
                 >
                   {submitStatus.message}
-                </div>
+                </motion.div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <label htmlFor="name" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className={`w-full p-2 sm:p-3 border ${
-                      formik.errors.name ? "border-red-500" : "border-gray-300"
-                    } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.name}
-                    required
-                  />
-                  {formik.touched.name && formik.errors.name && (
-                    <div className="text-red-500 text-xs sm:text-sm mt-1">
-                      {formik.errors.name}
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="email" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className={`w-full p-2 sm:p-3 border ${
-                      formik.errors.email ? "border-red-500" : "border-gray-300"
-                    } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email}
-                    required
-                  />
-                  {formik.touched.email && formik.errors.email && (
-                    <div className="text-red-500 text-xs sm:text-sm mt-1">
-                      {formik.errors.email}
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div>
-                <label htmlFor="subject" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
+              <motion.div
+                variants={container}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+              >
+                {[
+                  {
+                    id: "name",
+                    label: "Name",
+                    type: "text",
+                    error: formik.errors.name,
+                    touched: formik.touched.name,
+                  },
+                  {
+                    id: "email",
+                    label: "Email",
+                    type: "email",
+                    error: formik.errors.email,
+                    touched: formik.touched.email,
+                  },
+                ].map((field, index) => (
+                  <motion.div key={field.id} variants={item}>
+                    <label
+                      htmlFor={field.id}
+                      className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium"
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      type={field.type}
+                      id={field.id}
+                      name={field.id}
+                      className={`w-full p-2 sm:p-3 border ${
+                        field.error && field.touched
+                          ? "border-red-500"
+                          : "border-gray-300"
+                      } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values[field.id]}
+                      required
+                    />
+                    {field.touched && field.error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-xs sm:text-sm mt-1"
+                      >
+                        {field.error}
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div variants={item}>
+                <label
+                  htmlFor="subject"
+                  className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium"
+                >
                   Subject
                 </label>
                 <input
@@ -157,13 +202,21 @@ const Contact = () => {
                   required
                 />
                 {formik.touched.subject && formik.errors.subject && (
-                  <div className="text-red-500 text-xs sm:text-sm mt-1">
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-xs sm:text-sm mt-1"
+                  >
                     {formik.errors.subject}
-                  </div>
+                  </motion.div>
                 )}
-              </div>
-              <div>
-                <label htmlFor="message" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
+              </motion.div>
+
+              <motion.div variants={item}>
+                <label
+                  htmlFor="message"
+                  className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium"
+                >
                   Message
                 </label>
                 <textarea
@@ -179,11 +232,15 @@ const Contact = () => {
                   required
                 ></textarea>
                 {formik.touched.message && formik.errors.message && (
-                  <div className="text-red-500 text-xs sm:text-sm mt-1">
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-xs sm:text-sm mt-1"
+                  >
                     {formik.errors.message}
-                  </div>
+                  </motion.div>
                 )}
-              </div>
+              </motion.div>
 
               <ReCAPTCHA
                 ref={recaptchaRef}
@@ -191,104 +248,138 @@ const Contact = () => {
                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
               />
 
-              <button
+              <motion.button
                 type="submit"
                 className="bg-yellow-500 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-yellow-600 transition disabled:opacity-50 text-sm sm:text-base"
                 disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                variants={item}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
 
-          <div className="lg:w-1/2 bg-gray-50 p-6 sm:p-8 rounded-lg">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">OUR DETAILS</h3>
+          {/* Contact Details */}
+          <motion.div
+            variants={item}
+            className="lg:w-1/2 bg-gray-50 p-6 sm:p-8 rounded-lg"
+          >
+            <motion.h3
+              className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              OUR DETAILS
+            </motion.h3>
             <div className="space-y-4 sm:space-y-6">
-              <div className="flex items-start">
-                <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-base sm:text-lg font-semibold">Address</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Dubai, UAE
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-base sm:text-lg font-semibold">Phone</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    <a href="tel:+971569359046" className="hover:text-yellow-500">
-                      +971 569359046
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-base sm:text-lg font-semibold">Email</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    <a
-                      href="mailto:info@morph-accounting.ae"
-                      className="hover:text-yellow-500"
+              {[
+                {
+                  icon: (
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      info@morph-accounting.ae
-                    </a>
-                  </p>
-                </div>
-              </div>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  ),
+                  title: "Address",
+                  content: "Dubai, UAE",
+                  link: false,
+                },
+                {
+                  icon: (
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  ),
+                  title: "Phone",
+                  content: "+971 569359046",
+                  link: true,
+                  href: "tel:+971569359046",
+                },
+                {
+                  icon: (
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  ),
+                  title: "Email",
+                  content: "info@morph-accounting.ae",
+                  link: true,
+                  href: "mailto:info@morph-accounting.ae",
+                },
+              ].map((detail, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
+                  <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
+                    {detail.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold">
+                      {detail.title}
+                    </h4>
+                    {detail.link ? (
+                      <motion.a
+                        href={detail.href}
+                        className="text-xs sm:text-sm text-gray-600 hover:text-yellow-500"
+                        whileHover={{ x: 3 }}
+                      >
+                        {detail.content}
+                      </motion.a>
+                    ) : (
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        {detail.content}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
