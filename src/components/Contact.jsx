@@ -229,7 +229,6 @@ const Contact = () => {
                 <div>
                   <h4 className="text-base sm:text-lg font-semibold">Address</h4>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    Al Quoz Industrial Area 3<br />
                     Dubai, UAE
                   </p>
                 </div>
@@ -253,8 +252,8 @@ const Contact = () => {
                 <div>
                   <h4 className="text-base sm:text-lg font-semibold">Phone</h4>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    <a href="tel:+97143219999" className="hover:text-yellow-500">
-                      +971 4 321 9999
+                    <a href="tel:+971569359046" className="hover:text-yellow-500">
+                      +971 569359046
                     </a>
                   </p>
                 </div>
