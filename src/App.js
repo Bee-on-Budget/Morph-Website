@@ -15,9 +15,9 @@ function App() {
       <Hero />
       <About />
       <VehicleShowcase />
-  
+
       <Services />
-      <CoreValues/>
+      <CoreValues />
       <Contact />
       <Footer />
     </div>

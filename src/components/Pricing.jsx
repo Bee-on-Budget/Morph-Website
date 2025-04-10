@@ -75,20 +75,20 @@ const PricingSection = () => {
             >
               <div className="p-8 flex flex-col h-full">
                 {/* 3.1. Name */}
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                <h3 className="text-2xl font-bold mb-20 text-gray-900">
                   {pkg.name}
                 </h3>
 
                 {/* 3.2. Prices */}
                 <div className="mb-3">
                   <span className="text-sm text-gray-900">
-                    Starts from {pkg.currency}
+                    Starts from {pkg.currency}{" "}
+                  </span>
+                  <span className="text-xl font-bold underline text-gray-900">
+                    {pkg.newPrice}
                   </span>
                   <span className="text-md font-bold text-red-700 line-through ml-2">
-                    {pkg.oldPrice}
-                  </span>{" "}
-                  <span className="text-xl font-bold underline text-gray-900">
-                    {pkg.newPrice} {pkg.currency}
+                    {pkg.currency} {pkg.oldPrice}
                   </span>
                   <span className="text-gray-600 ml-1">/month</span>
                 </div>
@@ -105,7 +105,7 @@ const PricingSection = () => {
                 </div>
 
                 {/* 3.4. Description */}
-                <p className="text-gray-600 mb-6">{pkg.description}</p>
+                <p className="text-gray-600 h-64">{pkg.description}</p>
 
                 {/* 3.5. Contact button */}
                 <div className="mt-auto mb-6">
