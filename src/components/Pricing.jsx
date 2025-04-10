@@ -67,7 +67,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch align-top">
           {packages.map((pkg) => (
             <div
               key={pkg.id}
@@ -75,12 +75,12 @@ const PricingSection = () => {
             >
               <div className="p-8 flex flex-col h-full">
                 {/* 3.1. Name */}
-                <h3 className="text-2xl font-bold mb-20 text-gray-900">
+                <h3 className="text-2xl font-bold mb-12 text-gray-900">
                   {pkg.name}
                 </h3>
 
                 {/* 3.2. Prices */}
-                <div className="mb-3">
+                <div className="mb-6">
                   <span className="text-sm text-gray-900">
                     Starts from {pkg.currency}{" "}
                   </span>
@@ -94,10 +94,9 @@ const PricingSection = () => {
                 </div>
 
                 {/* 3.3. Billed annually */}
-                <div className="bg-blue-50 p-3 rounded-md mb-4">
-                  <p className="text-sm font-medium text-gray-700">
+                <div className="bg-blue-50 p-3 rounded-md mb-6">
+                  <p className="text-sm font-medium flex justify-between text-gray-700">
                     <span className="font-bold">Billed annually</span>
-                    <span className="mx-2">•</span>
                     <span className="font-bold">
                       {pkg.currency} {pkg.annuallyBilled}
                     </span>
@@ -105,10 +104,10 @@ const PricingSection = () => {
                 </div>
 
                 {/* 3.4. Description */}
-                <p className="text-gray-600 h-64">{pkg.description}</p>
+                <p className="text-gray-600 h-24 mb-6">{pkg.description}</p>
 
                 {/* 3.5. Contact button */}
-                <div className="mt-auto mb-6">
+                <div className="mb-6">
                   <button className="w-full py-3 rounded-md font-semibold transition-colors duration-300 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white">
                     Contact Sales
                   </button>
