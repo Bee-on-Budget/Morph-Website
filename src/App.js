@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import VehicleShowcase from "./components/VehicleShowcase";
+import Pricing from "./components/Pricing";
 import Services from "./components/Services";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -15,11 +15,10 @@ function App() {
       <Header />
       <Hero />
       <About />
-      <VehicleShowcase />
-
+      <Pricing />
       <Services />
       <CoreValues />
-      <FAQ/>
+      <FAQ />
       <Contact />
       <Footer />
     </div>
