@@ -17,9 +17,9 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { x: -20, opacity: 0 }, // Changed from y to x
+  hidden: { x: -20, opacity: 0 },
   visible: {
-    x: 0, // Changed from y to x
+    x: 0,
     opacity: 1,
     transition: {
       duration: 0.5,
@@ -32,7 +32,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-green-500 text-white overflow-hidden hero-bg"
+      className="relative min-h-screen flex items-center justify-center bg-green-500 text-white overflow-hidden hero-bg"
     >
       {/* Dark overlay for better text readability */}
       <motion.div
@@ -42,7 +42,8 @@ const Hero = () => {
         className="absolute inset-0 bg-black z-0"
       ></motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 py-16 md:py-24">
+      {/* Main content container with max-width */}
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 py-16 md:py-24">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Text and buttons section */}
           <motion.div
@@ -186,15 +187,15 @@ const Hero = () => {
 
           {/* HeroRightComponent */}
           <motion.div
-            initial={{ opacity: 0, scaleX: 0.8 }} // Changed from x to scaleX
-            animate={{ opacity: 1, scaleX: 1 }} // Changed from x to scaleX
+            initial={{ opacity: 0, scaleX: 0.8 }}
+            animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center justify-center w-full lg:w-1/2"
           >
-            <div className="relative w-full max-w-xl">
+            <div className="relative w-full max-w-md">
               <motion.div
                 animate={{
-                  scaleX: [1, 1.02, 1], // Changed from y to scaleX
+                  scaleX: [1, 1.02, 1],
                 }}
                 transition={{
                   duration: 6,

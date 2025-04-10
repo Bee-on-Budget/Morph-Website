@@ -48,25 +48,33 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-4">OUR SERVICES</h2>
-        <p className="text-lg text-gray-600 mx-auto mb-12 max-w-3xl text-center">
+    <section id="services" className="py-16 bg-white">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
+          OUR SERVICES
+        </h2>
+        <p className="text-base sm:text-lg text-gray-600 mx-auto mb-8 sm:mb-12 max-w-2xl sm:max-w-3xl text-center">
           End-to-end financial management solutions for modern businesses —
           powered by AI and backed by certified experts.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-50 p-8 rounded-lg border border-gray-200 hover:shadow-lg transition"
+              className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition"
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <p className="text-sm text-gold-500 mb-6">{service.details}</p>
-              <button className="text-black font-medium hover:underline">
+              <div className="text-3xl mb-3">{service.icon}</div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
+                {service.title}
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                {service.description}
+              </p>
+              <p className="text-xs sm:text-sm text-yellow-600 mb-4 sm:mb-6">
+                {service.details}
+              </p>
+              <button className="text-sm sm:text-base text-black font-medium hover:underline">
                 Learn more →
               </button>
             </div>

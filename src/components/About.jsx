@@ -41,23 +41,24 @@ const imageVariants = {
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-6 text-center">
+      <div className="w-full max-w-6xl mx-auto px-6 text-center">
         {/* Title & Subtitle */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
+          className="mb-12"
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl font-bold text-center mb-4"
+            className="text-3xl sm:text-4xl font-bold text-center mb-4"
           >
             ABOUT MORPH
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-gray-600 mx-auto mb-12 max-w-4xl"
+            className="text-base sm:text-lg text-gray-600 mx-auto max-w-3xl"
           >
             Morph is more than just accounting software — it's a complete
             financial management solution that blends AI-driven tools with
@@ -67,18 +68,18 @@ const About = () => {
         </motion.div>
 
         {/* Content */}
-        <div className="flex flex-col md:flex-row items-center gap-12 text-left">
+        <div className="flex flex-col md:flex-row items-center gap-8 lg:gap-12 text-left">
           {/* Left Text Section */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
-            className="md:w-1/2 space-y-8"
+            className="md:w-1/2 space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <h4 className="font-bold text-lg mb-1">Our Story</h4>
-              <p className="text-gray-600">
+              <h4 className="font-bold text-lg mb-2">Our Story</h4>
+              <p className="text-gray-600 text-sm sm:text-base">
                 Since launching Morph, our mission has been to redefine how
                 small and medium-sized businesses handle their finances. We saw
                 a need for more than just bookkeeping—so we built a platform
@@ -88,8 +89,8 @@ const About = () => {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h4 className="font-bold text-lg mb-1">Our Mission</h4>
-              <p className="text-gray-600">
+              <h4 className="font-bold text-lg mb-2">Our Mission</h4>
+              <p className="text-gray-600 text-sm sm:text-base">
                 To offer a comprehensive, tailored financial solution for
                 businesses—one that simplifies complexity and supports long-term
                 growth.
@@ -97,8 +98,8 @@ const About = () => {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h4 className="font-bold text-lg mb-1">Our Vision</h4>
-              <p className="text-gray-600">
+              <h4 className="font-bold text-lg mb-2">Our Vision</h4>
+              <p className="text-gray-600 text-sm sm:text-base">
                 To lead the transformation of financial management for SMBs and
                 help them exceed their goals with ease and confidence.
               </p>
@@ -111,7 +112,7 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={imageVariants}
-            className="md:w-1/2"
+            className="md:w-1/2 max-w-md mx-auto"
           >
             <motion.img
               src={adminLaptop}

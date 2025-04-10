@@ -10,7 +10,6 @@ const Contact = () => {
   const recaptchaRef = useRef();
   const formRef = useRef();
 
-  // Initialize EmailJS with environment variables
   emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
   const validationSchema = Yup.object().shape({
@@ -67,23 +66,25 @@ const Contact = () => {
   });
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-4">CONTACT US</h2>
-        <p className="text-lg text-gray-600 mx-auto mb-12 max-w-3xl text-center">
+    <section id="contact" className="py-12 sm:py-16 bg-white">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4">
+          CONTACT US
+        </h2>
+        <p className="text-sm sm:text-base text-gray-600 mx-auto mb-8 sm:mb-12 max-w-2xl text-center">
           Get in touch with our specialists
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
           <div className="lg:w-1/2">
             <form
               ref={formRef}
               onSubmit={formik.handleSubmit}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
               {submitStatus && (
                 <div
-                  className={`p-4 rounded ${
+                  className={`p-3 sm:p-4 rounded ${
                     submitStatus.success
                       ? "bg-green-100 text-green-800"
                       : "bg-red-100 text-red-800"
@@ -93,92 +94,92 @@ const Contact = () => {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label htmlFor="name" className="block mb-2 font-medium">
+                  <label htmlFor="name" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
                     Name
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    className={`w-full p-3 border ${
+                    className={`w-full p-2 sm:p-3 border ${
                       formik.errors.name ? "border-red-500" : "border-gray-300"
-                    } rounded focus:outline-none focus:ring-2 focus:ring-gold-500`}
+                    } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
                     required
                   />
                   {formik.touched.name && formik.errors.name && (
-                    <div className="text-red-500 text-sm mt-1">
+                    <div className="text-red-500 text-xs sm:text-sm mt-1">
                       {formik.errors.name}
                     </div>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block mb-2 font-medium">
+                  <label htmlFor="email" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    className={`w-full p-3 border ${
+                    className={`w-full p-2 sm:p-3 border ${
                       formik.errors.email ? "border-red-500" : "border-gray-300"
-                    } rounded focus:outline-none focus:ring-2 focus:ring-gold-500`}
+                    } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                     required
                   />
                   {formik.touched.email && formik.errors.email && (
-                    <div className="text-red-500 text-sm mt-1">
+                    <div className="text-red-500 text-xs sm:text-sm mt-1">
                       {formik.errors.email}
                     </div>
                   )}
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block mb-2 font-medium">
+                <label htmlFor="subject" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
                   Subject
                 </label>
                 <input
                   type="text"
                   id="subject"
                   name="subject"
-                  className={`w-full p-3 border ${
+                  className={`w-full p-2 sm:p-3 border ${
                     formik.errors.subject ? "border-red-500" : "border-gray-300"
-                  } rounded focus:outline-none focus:ring-2 focus:ring-gold-500`}
+                  } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.subject}
                   required
                 />
                 {formik.touched.subject && formik.errors.subject && (
-                  <div className="text-red-500 text-sm mt-1">
+                  <div className="text-red-500 text-xs sm:text-sm mt-1">
                     {formik.errors.subject}
                   </div>
                 )}
               </div>
               <div>
-                <label htmlFor="message" className="block mb-2 font-medium">
+                <label htmlFor="message" className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
-                  className={`w-full p-3 border ${
+                  rows="4"
+                  className={`w-full p-2 sm:p-3 border ${
                     formik.errors.message ? "border-red-500" : "border-gray-300"
-                  } rounded focus:outline-none focus:ring-2 focus:ring-gold-500`}
+                  } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.message}
                   required
                 ></textarea>
                 {formik.touched.message && formik.errors.message && (
-                  <div className="text-red-500 text-sm mt-1">
+                  <div className="text-red-500 text-xs sm:text-sm mt-1">
                     {formik.errors.message}
                   </div>
                 )}
@@ -192,7 +193,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="bg-gold-500 text-black py-3 px-8 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50"
+                className="bg-yellow-500 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-yellow-600 transition disabled:opacity-50 text-sm sm:text-base"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
@@ -200,13 +201,13 @@ const Contact = () => {
             </form>
           </div>
 
-          <div className="lg:w-1/2 bg-gray-50 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-6">OUR DETAILS</h3>
-            <div className="space-y-6">
+          <div className="lg:w-1/2 bg-gray-50 p-6 sm:p-8 rounded-lg">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">OUR DETAILS</h3>
+            <div className="space-y-4 sm:space-y-6">
               <div className="flex items-start">
-                <div className="text-gold-500 mr-4 mt-1">
+                <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 sm:w-6 sm:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -226,17 +227,17 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold">Address</h4>
-                  <p className="text-gray-600">
+                  <h4 className="text-base sm:text-lg font-semibold">Address</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
                     Al Quoz Industrial Area 3<br />
                     Dubai, UAE
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="text-gold-500 mr-4 mt-1">
+                <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 sm:w-6 sm:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -250,18 +251,18 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold">Phone</h4>
-                  <p className="text-gray-600">
-                    <a href="tel:+97143219999" className="hover:text-gold-500">
+                  <h4 className="text-base sm:text-lg font-semibold">Phone</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    <a href="tel:+97143219999" className="hover:text-yellow-500">
                       +971 4 321 9999
                     </a>
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="text-gold-500 mr-4 mt-1">
+                <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 sm:w-6 sm:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -275,11 +276,11 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold">Email</h4>
-                  <p className="text-gray-600">
+                  <h4 className="text-base sm:text-lg font-semibold">Email</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">
                     <a
                       href="mailto:info@morph-accounting.ae"
-                      className="hover:text-gold-500"
+                      className="hover:text-yellow-500"
                     >
                       info@morph-accounting.ae
                     </a>
