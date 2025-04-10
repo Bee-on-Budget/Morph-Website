@@ -1,6 +1,6 @@
 import React from "react";
 import { FiDatabase, FiUploadCloud, FiCheckCircle, FiBarChart2 } from "react-icons/fi";
-import adminDashboard from "../assets/images/core-values.png"; 
+import adminDashboard from "../assets/images/girl.png"; // Replace with your actual image path
 
 const AccountingAutomation = () => {
   return (
