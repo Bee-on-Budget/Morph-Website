@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
+import morphLogo from "../assets/images/logo-morph.png";
 
 const Footer = () => {
   return (
@@ -7,7 +8,16 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-2xl font-bold text-gold-500 mb-4">Morph</h3>
+            {/* <h3 className="text-2xl font-bold text-gold-500 mb-4">Morph</h3> */}
+
+            <Link
+              to="hero"
+              smooth
+              duration={500}
+              className="text-3xl font-bold text-gold-500 cursor-pointer"
+            >
+              <img alt="morph logo" src={morphLogo} className="w-24" />
+            </Link>
             <p className="mb-4">
               Dubai's premier automotive protection specialists
             </p>

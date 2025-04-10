@@ -7,11 +7,11 @@ const About = () => {
       <div className="container mx-auto px-6 text-center">
         {/* Title & Subtitle */}
         <h2 className="text-4xl font-bold text-center mb-4">ABOUT MORPH</h2>
-        <p className="text-lg text-gray-600 mx-auto mb-12 max-w-3xl">
-          Established in 2025 Morph has become Dubai's premier automotive
-          protection specialist. Our state-of-the-art facility in Al Quoz is
-          equipped with climate-controlled bays and certified installation
-          experts.
+        <p className="text-lg text-gray-600 mx-auto mb-12 max-w-4xl">
+          Morph is more than just accounting software — it's a complete
+          financial management solution that blends AI-driven tools with
+          certified financial and tax experts to save you time, money, and
+          effort.
         </p>
 
         {/* Content */}
@@ -19,19 +19,61 @@ const About = () => {
           {/* Left Text Section */}
           <div className="md:w-1/2 space-y-8">
             <div>
-              <h4 className="font-bold text-lg mb-1">What We Offer</h4>
-              <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>3M and XPEL Certified Installers</li>
-                <li>5,000+ Vehicles Protected</li>
-                <li>2-Year Minimum Warranty on All Services</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-1">Our Promise</h4>
+              <h4 className="font-bold text-lg mb-1">Our Story</h4>
               <p className="text-gray-600">
-                We guarantee exceptional service and long-lasting protection for
-                your vehicle with industry-leading materials and precision care.
+                Since launching Morph, our mission has been to redefine how
+                small and medium-sized businesses handle their finances. We saw
+                a need for more than just bookkeeping—so we built a platform
+                that empowers businesses with intelligent tools and expert
+                guidance tailored to local market needs.
               </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-1">Our Mission</h4>
+              <p className="text-gray-600">
+                To offer a comprehensive, tailored financial solution for
+                businesses—one that simplifies complexity and supports long-term
+                growth.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-1">Our Vision</h4>
+              <p className="text-gray-600">
+                To lead the transformation of financial management for SMBs and
+                help them exceed their goals with ease and confidence.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-1">Core Values</h4>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>
+                  <b>Integrity:</b> We value honesty and transparency in every
+                  conversation.
+                </li>
+                <li>
+                  <b>Customer-Centric:</b> Your goals are our priority, with
+                  support tailored to diverse markets.
+                </li>
+                <li>
+                  <b>Simplicity:</b> We make financial management intuitive and
+                  accessible.
+                </li>
+                <li>
+                  <b>Growth Mindset:</b> We embrace challenges and continuous
+                  improvement.
+                </li>
+                <li>
+                  <b>Innovation:</b> Constantly enhancing our tools to stay
+                  ahead.
+                </li>
+                <li>
+                  <b>Empowerment:</b> Giving businesses confidence to take bold
+                  steps forward.
+                </li>
+              </ul>
             </div>
           </div>
 
