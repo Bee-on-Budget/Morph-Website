@@ -4,7 +4,7 @@ import HeroRightComponent from "./HeroRightComponent.jsx";
 import { motion } from "framer-motion";
 import "../App.css";
 
-// Animation variants
+// Animation variants - modified for width animations
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -17,9 +17,9 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { x: -20, opacity: 0 }, // Changed from y to x
   visible: {
-    y: 0,
+    x: 0, // Changed from y to x
     opacity: 1,
     transition: {
       duration: 0.5,
@@ -34,7 +34,7 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center bg-green-500 text-white overflow-hidden hero-bg"
     >
-      {/* Dark overlay for better text readability - original opacity */}
+      {/* Dark overlay for better text readability */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
@@ -44,7 +44,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 py-16 md:py-24">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-          {/* Text and buttons section - takes full width on mobile */}
+          {/* Text and buttons section */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -184,17 +184,17 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* HeroRightComponent - hidden on mobile, proper positioning on larger screens */}
+          {/* HeroRightComponent */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scaleX: 0.8 }} // Changed from x to scaleX
+            animate={{ opacity: 1, scaleX: 1 }} // Changed from x to scaleX
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center justify-center w-full lg:w-1/2"
           >
             <div className="relative w-full max-w-xl">
               <motion.div
                 animate={{
-                  y: [0, -15, 0],
+                  scaleX: [1, 1.02, 1], // Changed from y to scaleX
                 }}
                 transition={{
                   duration: 6,
