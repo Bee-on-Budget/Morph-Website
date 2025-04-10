@@ -4,7 +4,7 @@ import girl from "../assets/images/girl.png";
 
 const AccountingAutomation = () => {
   return (
-    <section className="relative flex items-center bg-gray-100 py-12 md:py-20 lg:py-28 px-4">
+    <section id="CoreValue" className="relative flex items-center bg-gray-100 py-12 md:py-20 lg:py-28 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16">
           {/* Left content */}

@@ -15,6 +15,15 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [mobileMenuOpen]);
 
+  const navItems = [
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "pricing", label: "Pricing" },
+    { id: "services", label: "Services" },
+    { id: "faq", label: "FAQ" },
+    { id: "contact", label: "Contact" }
+  ];
+
   return (
     <header
       className={`fixed w-full z-50 transition-all ${
@@ -51,17 +60,17 @@ const Header = () => {
           </button>
 
           <nav className="hidden md:flex space-x-6">
-            {["vehicles", "services", "about", "contact"].map((item) => (
+            {navItems.map((item) => (
               <Link
-                key={item}
-                to={item}
+                key={item.id}
+                to={item.id}
                 smooth
                 duration={500}
                 offset={-80}
                 activeClass="text-gold-500"
                 className="text-white hover:text-gold-500 uppercase text-sm font-medium tracking-wider cursor-pointer transition"
               >
-                {item}
+                {item.label}
               </Link>
             ))}
           </nav>
@@ -71,10 +80,10 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-green-800 shadow-lg py-4 px-6">
             <nav className="flex flex-col space-y-4">
-              {["vehicles", "services", "about", "contact"].map((item) => (
+              {navItems.map((item) => (
                 <Link
-                  key={item}
-                  to={item}
+                  key={item.id}
+                  to={item.id}
                   smooth
                   duration={500}
                   offset={-80}
@@ -82,7 +91,7 @@ const Header = () => {
                   className="text-white hover:text-gold-500 uppercase text-sm font-medium tracking-wider cursor-pointer transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </nav>
