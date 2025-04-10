@@ -55,8 +55,7 @@ const Footer = () => {
               <img alt="morph logo" src={morphLogo} className="w-32 mb-4" />
             </Link>
             <p className="text-white text-lg font-light max-w-md mx-auto">
-              Elevating automotive protection to an art form in Dubai
-            </p>
+              Transforming financial clarity into a strategic advantage in Dubai            </p>
           </div>
 
           {/* Quick Links */}
@@ -143,8 +142,25 @@ const Footer = () => {
             <p>
               © {new Date().getFullYear()} Morph Automotive. All rights reserved.
             </p>
-            <p className="mt-2 text-xs opacity-80">
-              Crafted with passion in Dubai, UAE
+            <p className="mt-4 text-m opacity-80">
+              Powered by{' '}
+              <a
+                href="https://www.linkedin.com/in/mohammed-skouti-5822a01b9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-300 transition-colors duration-200"
+              >
+                Mohammed
+              </a>
+              {' '}&{' '}
+              <a
+                href="https://www.linkedin.com/in/SalwanArar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-300 transition-colors duration-200"
+              >
+                Salwan
+              </a>
             </p>
           </div>
         </div>
