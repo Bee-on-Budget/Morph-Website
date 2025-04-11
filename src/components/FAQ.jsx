@@ -175,13 +175,13 @@ const FAQ = () => {
             <motion.input
               type="text"
               placeholder="Search FAQs (press '/' to focus)"
-              className="w-full px-5 py-4 pr-12 rounded-lg border border-green-200 focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all duration-200 shadow-sm"
+              className="w-full px-4 py-4 pr-12 rounded-lg border-0 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200 outline-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               whileFocus={{ scale: 1.01 }}
             />
             <motion.div
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-400"
+              className="absolute inset-y-0 right-0 flex items-center pr-4 text-green-400"
               animate={{
                 x: searchTerm ? [0, -2, 2, -2, 0] : 0,
               }}
