@@ -300,7 +300,7 @@ const Contact = () => {
                     </svg>
                   ),
                   title: "Address",
-                  content: "Dubai, UAE",
+                  content: "Dubai , Ajman UAE",
                   link: false,
                 },
                 {

@@ -55,7 +55,7 @@ const Footer = () => {
               <img alt="morph logo" src={morphLogo} className="w-32 mb-4" />
             </Link>
             <p className="text-white text-lg font-light max-w-md mx-auto">
-              Transforming financial clarity into a strategic advantage in Dubai            </p>
+              Transforming financial clarity into a strategic advantage in Dubai and Ajman          </p>
           </div>
 
           {/* Quick Links */}
@@ -140,7 +140,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center text-white text-sm">
             <p>
-              © {new Date().getFullYear()} Morph Automotive. All rights reserved.
+              © {new Date().getFullYear()} Morph Accountent. All rights reserved.
             </p>
             <p className="mt-4 text-m opacity-80">
               Powered by{' '}
