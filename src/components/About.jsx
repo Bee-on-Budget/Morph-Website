@@ -50,13 +50,20 @@ const About = () => {
           variants={containerVariants}
           className="mb-12"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
-            className="text-3xl sm:text-4xl font-bold text-center mb-4"
+            className="text-4xl md:text-5xl font-bold text-green-800 mb-4"
           >
-            ABOUT MORPH
+            About Morph
           </motion.h2>
-          <motion.p 
+          <motion.div
+            className="w-20 h-1 bg-gold-700 mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          />
+          <motion.p
             variants={itemVariants}
             className="text-base sm:text-lg text-gray-600 mx-auto max-w-3xl"
           >
@@ -70,7 +77,7 @@ const About = () => {
         {/* Content */}
         <div className="flex flex-col md:flex-row items-center gap-8 lg:gap-12 text-left">
           {/* Left Text Section */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -107,7 +114,7 @@ const About = () => {
           </motion.div>
 
           {/* Right Image Section */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
