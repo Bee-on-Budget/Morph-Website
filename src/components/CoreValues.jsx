@@ -6,7 +6,7 @@ import {
   FiCheckCircle,
   FiBarChart2,
 } from "react-icons/fi";
-import girl from "../assets/images/girl.png";
+import girl from "../assets/images/core-values.png";
 
 const AccountingAutomation = () => {
   // Animation variants
@@ -126,7 +126,7 @@ const AccountingAutomation = () => {
           {/* Right side - responsive image container */}
           <motion.div variants={item} className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <motion.div
-              className="relative bg-white p-1 rounded-lg shadow-md border border-green-200 h-auto lg:h-[400px] flex flex-col"
+              className="relative bg-white p-1 rounded-lg shadow-md border border-none h-auto lg:h-[400px] flex flex-col"
               whileHover={{ scale: 1.02 }}
             >
               {/* Responsive image container */}
