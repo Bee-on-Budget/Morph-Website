@@ -92,9 +92,17 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
-            CONTACT US
+          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">
+            Contact Us
           </h2>
+
+          <motion.div
+            className="w-20 h-1 bg-gold-700 mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          />
           <p className="text-sm sm:text-base text-gray-600 mx-auto max-w-2xl">
             Get in touch with our specialists
           </p>
@@ -163,7 +171,7 @@ const Contact = () => {
                         field.error && field.touched
                           ? "border-red-500"
                           : "border-gray-300"
-                      } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
+                      } rounded focus:outline-none focus:ring-2 focus:ring-gold-600`}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values[field.id]}
@@ -195,7 +203,7 @@ const Contact = () => {
                   name="subject"
                   className={`w-full p-2 sm:p-3 border ${
                     formik.errors.subject ? "border-red-500" : "border-gray-300"
-                  } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
+                  } rounded focus:outline-none focus:ring-2 focus:ring-gold-600`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.subject}
@@ -225,7 +233,7 @@ const Contact = () => {
                   rows="4"
                   className={`w-full p-2 sm:p-3 border ${
                     formik.errors.message ? "border-red-500" : "border-gray-300"
-                  } rounded focus:outline-none focus:ring-2 focus:ring-yellow-500`}
+                  } rounded focus:outline-none focus:ring-2 focus:ring-gold-600`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.message}
@@ -250,7 +258,7 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                className="bg-yellow-500 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-yellow-600 transition disabled:opacity-50 text-sm sm:text-base"
+                className="bg-gold-600 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -354,7 +362,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1 }}
                 >
-                  <div className="text-yellow-500 mr-3 sm:mr-4 mt-0.5">
+                  <div className="text-gold-600 mr-3 sm:mr-4 mt-0.5">
                     {detail.icon}
                   </div>
                   <div>
@@ -364,7 +372,7 @@ const Contact = () => {
                     {detail.link ? (
                       <motion.a
                         href={detail.href}
-                        className="text-xs sm:text-sm text-gray-600 hover:text-yellow-500"
+                        className="text-xs sm:text-sm text-gray-600 hover:text-gold-600"
                         whileHover={{ x: 3 }}
                       >
                         {detail.content}

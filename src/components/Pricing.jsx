@@ -84,9 +84,16 @@ const PricingSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-green-100 mb-4">
             Our Prices
           </h2>
+                    <motion.div
+                      className="w-20 h-1 bg-gold-700 mx-auto mb-6"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4, duration: 0.6 }}
+                    />
           <p className="text-base sm:text-lg text-gray-300 mx-auto max-w-2xl sm:max-w-3xl">
             Choose the plan that fits your business needs
           </p>
@@ -169,7 +176,7 @@ const PricingSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  <button className="w-full py-2 sm:py-3 text-sm sm:text-base rounded-md font-semibold transition-colors duration-300 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white">
+                  <button className="w-full py-2 sm:py-3 text-sm sm:text-base rounded-md font-semibold transition-colors duration-300 border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white">
                     Contact Sales
                   </button>
                 </motion.div>

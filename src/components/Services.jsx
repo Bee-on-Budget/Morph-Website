@@ -74,9 +74,16 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
-            OUR SERVICES
+          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">
+            Our Services
           </h2>
+          <motion.div
+            className="w-20 h-1 bg-gold-700 mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          />
           <p className="text-base sm:text-lg text-gray-600 mx-auto max-w-2xl sm:max-w-3xl">
             End-to-end financial management solutions for modern businesses —
             powered by AI and backed by certified experts.
