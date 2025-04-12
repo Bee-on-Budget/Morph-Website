@@ -124,7 +124,7 @@ const About = () => {
             <motion.img
               src={adminLaptop}
               alt="Morph Dashboard"
-              className="rounded-lg shadow-xl w-full h-auto object-cover"
+              className="rounded-lg w-full h-auto"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
