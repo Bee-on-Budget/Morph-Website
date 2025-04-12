@@ -102,48 +102,48 @@ const Services = () => {
               key={index}
               variants={item}
               whileHover={{ y: -5 }}
-              className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition"
+              className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition flex flex-col h-full"
             >
-              <motion.div
-                className="text-3xl mb-3"
-                initial={{ scale: 0.8 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                {service.icon}
-              </motion.div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
-                {service.title}
-              </h3>
-              <motion.p
-                className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                {service.description}
-              </motion.p>
-              <motion.p
-                className="text-xs sm:text-sm text-yellow-600 mb-4 sm:mb-6"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-              >
-                {service.details}
-              </motion.p>
-              <motion.button
-                className="text-sm sm:text-base text-black font-medium hover:underline"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                whileHover={{ x: 5 }}
-              >
-                Learn more →
-              </motion.button>
+                <motion.div
+                  className="text-3xl mb-3"
+                  initial={{ scale: 0.8 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {service.icon}
+                </motion.div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
+                  {service.title}
+                </h3>
+                <motion.p
+                  className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {service.description}
+                </motion.p>
+                <motion.p
+                  className="text-xs sm:text-sm text-yellow-600 mb-4 sm:mb-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {service.details}
+                </motion.p>
+                <motion.button
+                  className="text-sm sm:text-base text-black font-medium hover:underline self-start mt-auto"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  whileHover={{ x: 5 }}
+                >
+                  Learn more →
+                </motion.button>
             </motion.div>
           ))}
         </motion.div>
