@@ -107,7 +107,7 @@ const About = () => {
             <motion.div variants={itemVariants}>
               <h4 className="font-bold text-lg mb-2">Our Vision</h4>
               <p className="text-gray-600 text-sm sm:text-base">
-                To lead the transformation of financial management for SMBs and
+                To lead the transformation of financial management for SMEs and
                 help them exceed their goals with ease and confidence.
               </p>
             </motion.div>
