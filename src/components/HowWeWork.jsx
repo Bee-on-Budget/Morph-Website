@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiUser, FiSettings, FiUpload, FiFileText, FiSmartphone } from "react-icons/fi";
-import workflowImage from "../assets/images/workflow.png";
+import workflowImage from "../assets/images/workflow-nobg.png";
 import qrCode from "../assets/images/app-qr-code.png";
 
 const HowWeWork = () => {
@@ -35,13 +35,13 @@ const HowWeWork = () => {
         <div className="flex flex-col lg:flex-row gap-8 items-stretch">
           {/* Left column - Steps */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-50px" }}
               variants={container}
             >
-              <motion.div 
+              <motion.div
                 variants={item}
                 className="inline-flex items-center gap-2 mb-6"
               >
@@ -50,8 +50,8 @@ const HowWeWork = () => {
                   Very Quick & Easy!
                 </span>
               </motion.div>
-              
-              <motion.h2 
+
+              <motion.h2
                 variants={item}
                 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight"
               >
@@ -61,8 +61,8 @@ const HowWeWork = () => {
                   Get started today
                 </span>
               </motion.h2>
-              
-              <motion.p 
+
+              <motion.p
                 variants={item}
                 className="text-lg text-gray-600 mb-8 max-w-lg"
               >
@@ -74,17 +74,21 @@ const HowWeWork = () => {
                 <motion.div
                   variants={item}
                   className="flex gap-5 p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 group"
-                  whileHover={{ 
+                  whileHover={{
                     y: -4,
-                    borderColor: "rgba(16, 185, 129, 0.3)"
+                    borderColor: "rgba(16, 185, 129, 0.3)",
                   }}
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-teal-50 to-white shadow-xs flex items-center justify-center text-teal-600 border border-teal-100 group-hover:border-teal-200 transition-colors">
                     <FiUser className="text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Create Your Account</h3>
-                    <p className="mt-1 text-gray-600">Create your account for financial management.</p>
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      Create Your Account
+                    </h3>
+                    <p className="mt-1 text-gray-600">
+                      Create your account for financial management.
+                    </p>
                   </div>
                 </motion.div>
 
@@ -92,17 +96,22 @@ const HowWeWork = () => {
                 <motion.div
                   variants={item}
                   className="flex gap-5 p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 group"
-                  whileHover={{ 
+                  whileHover={{
                     y: -4,
-                    borderColor: "rgba(16, 185, 129, 0.3)"
+                    borderColor: "rgba(16, 185, 129, 0.3)",
                   }}
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-teal-50 to-white shadow-xs flex items-center justify-center text-teal-600 border border-teal-100 group-hover:border-teal-200 transition-colors">
                     <FiSettings className="text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Personalize Your Account</h3>
-                    <p className="mt-1 text-gray-600">Set up your account and personalize your financial management workflow to fit your business needs.</p>
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      Personalize Your Account
+                    </h3>
+                    <p className="mt-1 text-gray-600">
+                      Set up your account and personalize your financial
+                      management workflow to fit your business needs.
+                    </p>
                   </div>
                 </motion.div>
 
@@ -110,17 +119,23 @@ const HowWeWork = () => {
                 <motion.div
                   variants={item}
                   className="flex gap-5 p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 group"
-                  whileHover={{ 
+                  whileHover={{
                     y: -4,
-                    borderColor: "rgba(16, 185, 129, 0.3)"
+                    borderColor: "rgba(16, 185, 129, 0.3)",
                   }}
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-teal-50 to-white shadow-xs flex items-center justify-center text-teal-600 border border-teal-100 group-hover:border-teal-200 transition-colors">
                     <FiUpload className="text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Scan/Share Your Daily Invoices & Receipts</h3>
-                    <p className="mt-1 text-gray-600">Our platform captures data from your shared invoices, receipts, and financial documents, automating compliance from record-keeping to tax return preparation.</p>
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      Scan/Share Your Daily Invoices & Receipts
+                    </h3>
+                    <p className="mt-1 text-gray-600">
+                      Our platform captures data from your shared invoices,
+                      receipts, and financial documents, automating compliance
+                      from record-keeping to tax return preparation.
+                    </p>
                   </div>
                 </motion.div>
 
@@ -128,17 +143,23 @@ const HowWeWork = () => {
                 <motion.div
                   variants={item}
                   className="flex gap-5 p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 group"
-                  whileHover={{ 
+                  whileHover={{
                     y: -4,
-                    borderColor: "rgba(16, 185, 129, 0.3)"
+                    borderColor: "rgba(16, 185, 129, 0.3)",
                   }}
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-teal-50 to-white shadow-xs flex items-center justify-center text-teal-600 border border-teal-100 group-hover:border-teal-200 transition-colors">
                     <FiFileText className="text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Receive Your Financial Reports</h3>
-                    <p className="mt-1 text-gray-600">Monthly/quarterly and annually financial reports, statements, and insights from our experts. Pretty Simple, huh?</p>
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      Receive Your Financial Reports
+                    </h3>
+                    <p className="mt-1 text-gray-600">
+                      Monthly/quarterly and annually financial reports,
+                      statements, and insights from our experts. Pretty Simple,
+                      huh?
+                    </p>
                   </div>
                 </motion.div>
               </div>
@@ -147,6 +168,58 @@ const HowWeWork = () => {
 
           {/* Right column - Visuals */}
           <div className="w-full lg:w-1/2 flex items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full"
+            >
+              <div className="relative" style={{ height: "540px" }}>
+                {/* Workflow Image */}
+                <img
+                  src={workflowImage}
+                  alt="Workflow illustration"
+                  className="w-full h-full object-contain"
+                />
+
+                {/* QR Container - positioned relative to image */}
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 z-10">
+                  <motion.div
+                    className="p-4 bg-white rounded-lg shadow-lg border border-gray-200 backdrop-blur-sm bg-opacity-60"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    whileHover={{
+                      y: -3,
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    <div className="flex flex-col items-center">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="p-1.5 bg-teal-100 rounded-md text-teal-600">
+                          <FiSmartphone className="text-lg" />
+                        </div>
+                        <h4 className="text-sm font-medium text-gray-800">
+                          Get Our Mobile App
+                        </h4>
+                      </div>
+                      <img
+                        src={qrCode}
+                        alt="Download app QR code"
+                        className="w-28 h-28 border border-gray-100"
+                      />
+                      <p className="text-xs text-gray-600 mt-2 font-medium">
+                        Scan to download
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+          {/*<div className="w-full lg:w-1/2 flex items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -166,7 +239,7 @@ const HowWeWork = () => {
                 />
                 
                 {/* QR code positioned at bottom-center */}
-                <motion.div
+          {/*<motion.div
                   className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl border border-gray-200/50"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +268,7 @@ const HowWeWork = () => {
                 </motion.div>
               </motion.div>
             </motion.div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>
