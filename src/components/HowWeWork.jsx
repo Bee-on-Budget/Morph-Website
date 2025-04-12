@@ -30,11 +30,11 @@ const HowWeWork = () => {
   };
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-white">
+    <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-200 to-gold">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
           {/* Left column - Steps */}
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center">
             <motion.div 
               initial="hidden"
               whileInView="show"
@@ -57,7 +57,7 @@ const HowWeWork = () => {
               >
                 How We Work?
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-black">
                   Get started today
                 </span>
               </motion.h2>
@@ -146,17 +146,18 @@ const HowWeWork = () => {
           </div>
 
           {/* Right column - Visuals */}
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 flex items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="relative w-full"
+              style={{ marginTop: '1.5rem' }}
             >
               <motion.div
                 className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100"
-                style={{ height: '620px' }}
+                style={{ height: '540px' }}
               >
                 <img
                   src={workflowImage}
@@ -164,7 +165,7 @@ const HowWeWork = () => {
                   className="w-full h-full object-cover"
                 />
                 
-                {/* QR code positioned perfectly at bottom */}
+                {/* QR code positioned at bottom-center */}
                 <motion.div
                   className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl border border-gray-200/50"
                   initial={{ opacity: 0, y: 20 }}
