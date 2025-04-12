@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import correctSign from "../assets/svgs/Icons.webp.svg";
+import { useContact } from "../context/ContactContext";
 
 const PricingSection = () => {
   const packages = [
@@ -58,6 +59,20 @@ const PricingSection = () => {
     },
   ];
 
+  const { setContactData } = useContact();
+  const handleContactClick = (subject, message) => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+
+    setTimeout(() => {
+      setContactData({
+        subject,
+        message,
+        shouldFocus: true, // Set focus flag
+        shouldScroll: true, // Trigger smooth scroll
+      });
+    }, 500);
+  };
+
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -87,13 +102,13 @@ const PricingSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-green-100 mb-4">
             Our Prices
           </h2>
-                    <motion.div
-                      className="w-20 h-1 bg-gold-700 mx-auto mb-6"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4, duration: 0.6 }}
-                    />
+          <motion.div
+            className="w-20 h-1 bg-gold-700 mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          />
           <p className="text-base sm:text-lg text-gray-300 mx-auto max-w-2xl sm:max-w-3xl">
             Choose the plan that fits your business needs
           </p>
@@ -176,7 +191,23 @@ const PricingSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  <button className="w-full py-2 sm:py-3 text-sm sm:text-base rounded-md font-semibold transition-colors duration-300 border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white">
+                  <button
+                    onClick={() =>
+                      handleContactClick(
+                        `Inquiry about ${pkg.name} Plan (${pkg.currency} ${pkg.newPrice}/month)`,
+                        `Hello Morph Accounting Team,\n\nI'm interested in your ${
+                          pkg.name
+                        } plan:\n\n- Price: ${pkg.currency} ${
+                          pkg.newPrice
+                        }/month (${pkg.currency} ${
+                          pkg.annuallyBilled
+                        } annually)\n- Features: ${pkg.features.join(
+                          ", "
+                        )}\n\nCould you please provide more information about this package?\n\nBest regards,`
+                      )
+                    }
+                    className="w-full py-2 sm:py-3 text-sm sm:text-base rounded-md font-semibold transition-colors duration-300 border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white"
+                  >
                     Contact Sales
                   </button>
                 </motion.div>

@@ -9,20 +9,24 @@ import Footer from "./components/Footer";
 import CoreValues from "./components/CoreValues";
 import FAQ from "./components/FAQ";
 import HowWeWork from "./components/HowWeWork";
+import { ContactProvider } from "./context/ContactContext";
+
 function App() {
   return (
-    <div className="font-sans">
-      <Header />
-      <Hero />
-      <HowWeWork/>
-      <About />
-      <Pricing />
-      <Services />
-      <CoreValues />
-      <FAQ />
-      <Contact />
-      <Footer />
-    </div>
+    <ContactProvider>
+      <div className="font-sans">
+        <Header />
+        <Hero />
+        <HowWeWork />
+        <About />
+        <Pricing />
+        <Services />
+        <CoreValues />
+        <FAQ />
+        <Contact />
+        <Footer />
+      </div>
+    </ContactProvider>
   );
 }
 

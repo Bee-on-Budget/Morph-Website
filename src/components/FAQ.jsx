@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useContact } from "../context/ContactContext";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const searchRef = useRef(null);
+
+  const { setContactData } = useContact();
 
   // Enhanced FAQ data structure with categories
   const faqData = {
@@ -110,6 +113,18 @@ const FAQ = () => {
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+  const handleContactClick = (subject, message) => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+
+    setTimeout(() => {
+      setContactData({
+        subject,
+        message,
+        shouldFocus: true, // Set focus flag
+        shouldScroll: true, // Trigger smooth scroll
+      });
+    }, 500);
   };
 
   return (
@@ -452,6 +467,16 @@ const FAQ = () => {
               </motion.a>
               <motion.a
                 href="#demo"
+                onClick={() =>
+                  handleContactClick(
+                    `Inquiry about requesting a demo`,
+                    `Hello Morph Accounting Team,
+\nI'm interested in your ticket managment services.
+I would like to try it before I make the decision to subscribe.
+\nCould you please provide more information about requesting the demo?
+\nBest regards,`
+                  )
+                }
                 className="px-6 py-3 border border-white hover:bg-white hover:text-green-800 rounded-lg font-medium transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

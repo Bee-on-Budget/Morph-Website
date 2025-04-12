@@ -1,15 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useContact } from "../context/ContactContext";
 
 const Contact = () => {
+  const { contactData, setContactData } = useContact();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const recaptchaRef = useRef();
   const formRef = useRef();
+  const messageRef = useRef();
+  const contactSectionRef = useRef(null);
 
   emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
@@ -24,8 +28,8 @@ const Contact = () => {
     initialValues: {
       name: "",
       email: "",
-      subject: "",
-      message: "",
+      subject: contactData.subject,
+      message: contactData.message,
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -50,6 +54,8 @@ const Contact = () => {
             message: "Message sent successfully!",
           });
           resetForm();
+          // Clear context after successful submission
+          setContactData({ subject: "", message: "", shouldFocus: false });
         } else {
           throw new Error("Failed to send message");
         }
@@ -65,6 +71,41 @@ const Contact = () => {
       }
     },
   });
+
+  // Sync context changes with Formik
+  useEffect(() => {
+    if (contactData.shouldScroll && contactSectionRef.current) {
+      contactSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      // Reset scroll flag
+      setContactData((prev) => ({ ...prev, shouldScroll: false }));
+    }
+
+    if (contactData.shouldFocus && messageRef.current) {
+      messageRef.current.focus();
+      setContactData((prev) => ({ ...prev, shouldFocus: false }));
+    }
+
+    if (contactData.subject !== formik.values.subject) {
+      formik.setFieldValue("subject", contactData.subject);
+    }
+
+    if (contactData.message !== formik.values.message) {
+      formik.setFieldValue("message", contactData.message);
+    }
+  }, [contactData, formik, setContactData]);
+
+  // Handle focus when requested
+  useEffect(() => {
+    if (contactData.shouldFocus && messageRef.current) {
+      messageRef.current.focus();
+      // Reset focus flag
+      setContactData((prev) => ({ ...prev, shouldFocus: false }));
+    }
+  }, [contactData.shouldFocus, setContactData]);
 
   // Animation variants
   const container = {
@@ -83,7 +124,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 bg-white">
+    <section
+      id="contact"
+      ref={contactSectionRef}
+      className="py-12 sm:py-16 bg-white"
+    >
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,7 +140,6 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">
             Contact Us
           </h2>
-
           <motion.div
             className="w-20 h-1 bg-gold-700 mx-auto mb-6"
             initial={{ scaleX: 0 }}
@@ -155,7 +199,7 @@ const Contact = () => {
                     error: formik.errors.email,
                     touched: formik.touched.email,
                   },
-                ].map((field, index) => (
+                ].map((field) => (
                   <motion.div key={field.id} variants={item}>
                     <label
                       htmlFor={field.id}
@@ -202,7 +246,9 @@ const Contact = () => {
                   id="subject"
                   name="subject"
                   className={`w-full p-2 sm:p-3 border ${
-                    formik.errors.subject ? "border-red-500" : "border-gray-300"
+                    formik.errors.subject && formik.touched.subject
+                      ? "border-red-500"
+                      : "border-gray-300"
                   } rounded focus:outline-none focus:ring-2 focus:ring-gold-600`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -228,17 +274,20 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  ref={messageRef}
                   id="message"
                   name="message"
                   rows="4"
                   className={`w-full p-2 sm:p-3 border ${
-                    formik.errors.message ? "border-red-500" : "border-gray-300"
+                    formik.errors.message && formik.touched.message
+                      ? "border-red-500"
+                      : "border-gray-300"
                   } rounded focus:outline-none focus:ring-2 focus:ring-gold-600`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.message}
                   required
-                ></textarea>
+                />
                 {formik.touched.message && formik.errors.message && (
                   <motion.div
                     initial={{ opacity: 0, y: -5 }}
@@ -258,7 +307,7 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                className="bg-gold-600 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
+                className="w-full bg-gold-600 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
