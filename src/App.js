@@ -8,12 +8,13 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CoreValues from "./components/CoreValues";
 import FAQ from "./components/FAQ";
-
+import HowWeWork from "./components/HowWeWork";
 function App() {
   return (
     <div className="font-sans">
       <Header />
       <Hero />
+      <HowWeWork/>
       <About />
       <Pricing />
       <Services />

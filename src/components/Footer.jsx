@@ -56,8 +56,7 @@ const Footer = () => {
               <img alt="morph logo" src={morphLogo} className="w-32 mb-4" />
             </Link>
             <p className="text-white text-lg font-light max-w-md mx-auto">
-              Transforming financial clarity into a strategic advantage in Dubai
-              and Ajman{" "}
+              Transforming financial clarity into a strategic advantage in UAE{" "}
             </p>
           </div>
 
