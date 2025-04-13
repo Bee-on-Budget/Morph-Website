@@ -408,7 +408,7 @@ const FAQ = () => {
                 Contact Support
               </motion.a>
               <motion.a
-                href="#demo"
+                href="#contact"
                 onClick={() =>
                   handleContactClick(
                     `Inquiry about requesting a demo`,
