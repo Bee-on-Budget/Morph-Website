@@ -413,7 +413,7 @@ const FAQ = () => {
                   handleContactClick(
                     `Inquiry about requesting a demo`,
                     `Hello Morph Accounting Team,
-\nI'm interested in your ticket managment services.
+\nI'm interested in your ticket management services.
 I would like to try it before I make the decision to subscribe.
 \nCould you please provide more information about requesting the demo?
 \nBest regards,`
