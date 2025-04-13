@@ -124,7 +124,7 @@ const AccountingAutomation = () => {
           </motion.div>
 
           {/* Right side - responsive image container */}
-          <motion.div variants={item} className="w-full lg:w-1/2 mt-6 lg:mt-0">
+          <motion.div variants={item} className="w-full lg:w-1/3 mt-6 lg:mt-0 lg:ml-auto">
             <motion.div
               className="relative p-1 rounded-lg border border-none h-auto lg:h-[400px] flex flex-col"
               whileHover={{ scale: 1.02 }}
