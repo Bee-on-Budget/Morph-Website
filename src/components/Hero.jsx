@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-scroll";
 import HeroRightComponent from "./HeroRightComponent.jsx";
 import { motion } from "framer-motion";
+import WhatsAppButton from '../components/WhatsAppButton';
 import "../App.css";
 
 // Animation variants - modified for width animations
@@ -41,6 +42,7 @@ const Hero = () => {
         transition={{ duration: 1 }}
         className="absolute inset-0 bg-black z-0"
       ></motion.div>
+      <WhatsAppButton />
 
       {/* Main content container with max-width */}
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 py-16 md:py-24">
