@@ -90,15 +90,7 @@ const Contact = () => {
       messageRef.current.focus();
       setContactData((prev) => ({ ...prev, shouldFocus: false }));
     }
-
-    if (contactData.subject !== formik.values.business) {
-      formik.setFieldValue("business", contactData.subject);
-    }
-
-    if (contactData.message !== formik.values.message) {
-      formik.setFieldValue("message", contactData.message);
-    }
-  },  [contactData.subject, contactData.message, setContactData]);
+  },  [contactData, setContactData]);
 
   // Handle focus when requested
   useEffect(() => {
