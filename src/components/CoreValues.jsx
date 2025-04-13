@@ -126,7 +126,7 @@ const AccountingAutomation = () => {
           {/* Right side - responsive image container */}
           <motion.div variants={item} className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <motion.div
-              className="relative bg-white p-1 rounded-lg shadow-md border border-none h-auto lg:h-[400px] flex flex-col"
+              className="relative p-1 rounded-lg border border-none h-auto lg:h-[400px] flex flex-col"
               whileHover={{ scale: 1.02 }}
             >
               {/* Responsive image container */}
@@ -161,13 +161,13 @@ const AccountingAutomation = () => {
 
               {/* Status indicator */}
               <motion.div
-                className="absolute top-2 right-2 bg-green-600 text-white text-xxs px-1.5 py-0.5 rounded-full flex items-center"
+                className="absolute top-2 right-2 bg-white text-green-600 font-bold text-xxs px-1.5 py-0.5 rounded-full flex items-center"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7, type: "spring" }}
               >
-                <span className="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>
+                <span className="w-1.5 h-1.5 bg-green-600 rounded-full mr-1"></span>
                 Automated
               </motion.div>
             </motion.div>
