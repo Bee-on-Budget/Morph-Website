@@ -31,7 +31,8 @@ const Contact = () => {
       name: "",
       email: "",
       phone: "",
-      business: contactData.subject,
+      business: "",
+      subject: contactData.subject,
       message: contactData.message,
     },
     validationSchema,
@@ -91,7 +92,15 @@ const Contact = () => {
       messageRef.current.focus();
       setContactData((prev) => ({ ...prev, shouldFocus: false }));
     }
-  },  [contactData, setContactData]);
+
+    if (contactData.subject !== formik.values.business) {
+      formik.setFieldValue("subject", contactData.subject);
+    }
+
+    if (contactData.message !== formik.values.message) {
+      formik.setFieldValue("message", contactData.message);
+    }
+  },  [contactData.subject, contactData.message, setContactData]);
 
   // Handle focus when requested
   useEffect(() => {
