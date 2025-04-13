@@ -96,7 +96,8 @@ const Contact = () => {
     if (contactData.message !== formik.values.message) {
       formik.setFieldValue("message", contactData.message);
     }
-  }, [contactData, formik, setContactData]);
+  },  [contactData.subject, contactData.message, setContactData]); // Removed formik
+
 
   // Handle focus when requested
   useEffect(() => {
