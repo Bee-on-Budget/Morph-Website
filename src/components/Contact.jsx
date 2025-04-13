@@ -20,7 +20,8 @@ const Contact = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
-    subject: Yup.string().required("Subject is required"),
+    phone: Yup.string().matches(/^[0-9]+$/, "Must be only digits"),
+    business: Yup.string().required("Business name is required"),
     message: Yup.string().required("Message is required"),
   });
 
@@ -28,7 +29,8 @@ const Contact = () => {
     initialValues: {
       name: "",
       email: "",
-      subject: contactData.subject,
+      phone: "",
+      business: contactData.subject,
       message: contactData.message,
     },
     validationSchema,
@@ -89,15 +91,14 @@ const Contact = () => {
       setContactData((prev) => ({ ...prev, shouldFocus: false }));
     }
 
-    if (contactData.subject !== formik.values.subject) {
-      formik.setFieldValue("subject", contactData.subject);
+    if (contactData.subject !== formik.values.business) {
+      formik.setFieldValue("business", contactData.subject);
     }
 
     if (contactData.message !== formik.values.message) {
       formik.setFieldValue("message", contactData.message);
     }
-  },  [contactData.subject, contactData.message, setContactData]); // Removed formik
-
+  },  [contactData.subject, contactData.message, setContactData]);
 
   // Handle focus when requested
   useEffect(() => {
@@ -138,9 +139,10 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-2">
             Contact Us
           </h2>
+          <p className="text-lg text-gold-600 mb-4">Get a Free Consultation</p>
           <motion.div
             className="w-20 h-1 bg-gold-700 mx-auto mb-6"
             initial={{ scaleX: 0 }}
@@ -200,6 +202,20 @@ const Contact = () => {
                     error: formik.errors.email,
                     touched: formik.touched.email,
                   },
+                  {
+                    id: "phone",
+                    label: "Phone Number",
+                    type: "tel",
+                    error: formik.errors.phone,
+                    touched: formik.touched.phone,
+                  },
+                  {
+                    id: "business",
+                    label: "Business Name",
+                    type: "text",
+                    error: formik.errors.business,
+                    touched: formik.touched.business,
+                  },
                 ].map((field) => (
                   <motion.div key={field.id} variants={item}>
                     <label
@@ -220,7 +236,7 @@ const Contact = () => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values[field.id]}
-                      required
+                      required={field.id !== "phone"}
                     />
                     {field.touched && field.error && (
                       <motion.div
@@ -233,38 +249,6 @@ const Contact = () => {
                     )}
                   </motion.div>
                 ))}
-              </motion.div>
-
-              <motion.div variants={item}>
-                <label
-                  htmlFor="subject"
-                  className="block mb-1 sm:mb-2 text-sm sm:text-base font-medium"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className={`w-full p-2 sm:p-3 border ${
-                    formik.errors.subject && formik.touched.subject
-                      ? "border-red-500"
-                      : "border-gray-300"
-                  } rounded focus:outline-none focus:ring-2 focus:ring-gold-600`}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.subject}
-                  required
-                />
-                {formik.touched.subject && formik.errors.subject && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-500 text-xs sm:text-sm mt-1"
-                  >
-                    {formik.errors.subject}
-                  </motion.div>
-                )}
               </motion.div>
 
               <motion.div variants={item}>
