@@ -5,11 +5,12 @@ import Pricing from "./components/Pricing";
 import Services from "./components/Services";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import CoreValues from "./components/CoreValues";
 import FAQ from "./components/FAQ";
 import HowWeWork from "./components/HowWeWork";
 import { ContactProvider } from "./context/ContactContext";
+import Footer2 from "./components/Footer2";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <CoreValues />
         <FAQ />
         <Contact />
-        <Footer />
+        {/* <Footer /> */}
+        <Footer2 />
       </div>
     </ContactProvider>
   );
