@@ -290,12 +290,15 @@ const Contact = () => {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 size="invisible"
+                style={{
+                  visibility: 'hidden'
+                }}
                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
               />
 
               <motion.button
                 type="submit"
-                className="w-full bg-gold-600 text-black py-2 sm:py-3 px-6 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
+                className="w-full bg-gold-600 text-white py-2 sm:py-3 px-6 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -304,6 +307,23 @@ const Contact = () => {
                 {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
             </form>
+            <p className="text-xs text-gray-400 mt-2">
+              This site is protected by reCAPTCHA and the Google
+              <a
+                href="https://policies.google.com/privacy"
+                className="underline ml-1"
+              >
+                Privacy Policy
+              </a>{" "}
+              and
+              <a
+                href="https://policies.google.com/terms"
+                className="underline ml-1"
+              >
+                Terms of Service
+              </a>{" "}
+              apply.
+            </p>
           </motion.div>
 
           {/* Contact Details */}
