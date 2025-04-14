@@ -77,30 +77,31 @@ const Contact = () => {
   });
 
   // Sync context changes with Formik
-useEffect(() => {
-  if (contactData.shouldScroll && contactSectionRef.current) {
-    contactSectionRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-    setContactData((prev) => ({ ...prev, shouldScroll: false }));
-  }
+  useEffect(() => {
+    if (contactData.shouldScroll && contactSectionRef.current) {
+      contactSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setContactData((prev) => ({ ...prev, shouldScroll: false }));
+    }
 
-  if (contactData.shouldFocus && messageRef.current) {
-    messageRef.current.focus();
-    setContactData((prev) => ({ ...prev, shouldFocus: false }));
-  }
+    if (contactData.shouldFocus && messageRef.current) {
+      messageRef.current.focus();
+      setContactData((prev) => ({ ...prev, shouldFocus: false }));
+    }
 
-  // Update subject only when it's different
-  if (formik.values.subject !== contactData.subject) {
-    formik.setFieldValue("subject", contactData.subject || "");
-  }
+    // Update subject only when it's different
+    if (formik.values.subject !== contactData.subject) {
+      formik.setFieldValue("subject", contactData.subject || "");
+    }
 
-  // Update message only when it's different
-  if (formik.values.message !== contactData.message) {
-    formik.setFieldValue("message", contactData.message || "");
-  }
-}, [contactData, setContactData]);
+    // Update message only when it's different
+    if (formik.values.message !== contactData.message) {
+      formik.setFieldValue("message", contactData.message || "");
+    }
+    // eslint-disable-next-line
+  }, [contactData, setContactData]);
 
   // Handle focus when requested
   useEffect(() => {
