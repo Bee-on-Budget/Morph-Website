@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 const WhatsAppButton = () => {
   return (
     <motion.div
-      className="fixed right-6 z-50"
-      style={{ bottom: '100px' }}
+      className="fixed right-6 z-50 lg:bottom-24 bottom-5"
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ 
