@@ -291,14 +291,14 @@ const Contact = () => {
                 ref={recaptchaRef}
                 size="invisible"
                 style={{
-                  visibility: 'hidden'
+                  visibility: "hidden",
                 }}
                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
               />
 
               <motion.button
                 type="submit"
-                className="w-full bg-gold-600 text-white py-2 sm:py-3 px-6 rounded font-medium hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
+                className="w-full bg-gold-600 text-white py-2 sm:py-3 px-6 rounded font-semibold hover:bg-gold-700 transition disabled:opacity-50 text-sm sm:text-base"
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

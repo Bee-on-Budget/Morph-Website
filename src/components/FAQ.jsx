@@ -132,7 +132,7 @@ const FAQ = () => {
             <motion.input
               type="text"
               placeholder="Search FAQs (press '/' to focus)"
-              className="w-full px-4 py-4 pr-12 rounded-lg border-0 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200 outline-none"
+              className="w-full px-4 py-4 pr-12 rounded-lg border-0 focus:ring-2 focus:ring-gold-600 focus:border-transparent transition-all duration-200 outline-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               whileFocus={{ scale: 1.01 }}
@@ -401,7 +401,7 @@ const FAQ = () => {
             >
               <motion.a
                 href="#contact"
-                className="px-6 py-3 bg-gold-700 hover:bg-gold-800 rounded-lg font-medium transition-colors"
+                className="px-6 py-3 bg-gold-700 hover:bg-gold-800 rounded-lg font-semibold transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -419,7 +419,7 @@ I would like to try it before I make the decision to subscribe.
 \nBest regards,`
                   )
                 }
-                className="px-6 py-3 border border-white hover:bg-white hover:text-green-800 rounded-lg font-medium transition-colors"
+                className="px-6 py-3 border border-white hover:bg-white hover:text-green-800 rounded-lg font-semibold transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

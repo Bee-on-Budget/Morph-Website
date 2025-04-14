@@ -69,7 +69,7 @@ const Services = () => {
                 <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                   {service.description}
                 </p>
-                <p className="text-xs sm:text-sm text-yellow-600 mb-4 sm:mb-6">
+                <p className="text-xs sm:text-sm text-gold-700 mb-4 sm:mb-6">
                   {service.details}
                 </p>
                 <button

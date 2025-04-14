@@ -77,7 +77,7 @@ const Hero = () => {
                 </motion.div>
                 <span className="text-sm sm:text-base text-green-50">
                   Save up to{" "}
-                  <span className="font-semibold text-yellow-300">80%</span> on
+                  <span className="font-semibold text-gold-400">80%</span> on
                   accounting costs
                 </span>
               </div>
@@ -169,7 +169,7 @@ const Hero = () => {
                 href="https://app.morph-accounting.ae"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded transition-colors text-base"
+                className="bg-gold-600 hover:bg-gold-700 text-white font-semibold py-3 px-8 rounded transition-colors text-base"
               >
                 Download App
               </motion.a>
@@ -179,7 +179,7 @@ const Hero = () => {
                   smooth={true}
                   duration={500}
                   offset={-80}
-                  className="border-2 border-white hover:border-yellow-500 text-white hover:text-yellow-500 font-bold py-3 px-8 rounded transition-colors text-base cursor-pointer block"
+                  className="border-2 border-white hover:border-gold-600 text-white hover:text-gold-600 font-semibold py-3 px-8 rounded transition-colors text-base cursor-pointer block"
                 >
                   Contact us
                 </Link>
