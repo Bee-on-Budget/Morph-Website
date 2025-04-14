@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-scroll";
 import morphLogo from "../assets/images/logo-morph.png";
-import {YoutubeIcon, FacebookIcon, InstagramIcon, WhatsappIcon} from "./icons";
+import {YoutubeIcon, FacebookIcon, InstagramIcon} from "./icons";
 
 const Footer = () => {
   // Function to create sparkle effects
@@ -63,17 +63,25 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="mb-12">
             <ul className="flex flex-wrap justify-center gap-8">
-              {["hero", "pricing", "about"].map((link) => (
-                <li key={link}>
+              {[
+                { id: "hero", label: "Home" },
+                { id: "about", label: "About" },
+                { id: "pricing", label: "Pricing" },
+                { id: "services", label: "Services" },
+                { id: "faq", label: "FAQ" },
+                { id: "contact", label: "Contact" },
+              ].map((link) => (
+                // <li key={link.id}>
                   <Link
-                    to={link}
+                    to={link.id}
+                    key={link.id}
                     smooth
                     duration={500}
                     className="text-white hover:text-amber-300 cursor-pointer capitalize font-medium text-sm tracking-wider transition-colors duration-300"
                   >
-                    {link}
+                    {link.label}
                   </Link>
-                </li>
+                // {/* </li> */}
               ))}
             </ul>
           </div>
@@ -89,15 +97,6 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <InstagramIcon />
-              </a>
-              <a
-                href="https://wa.me/971569359046"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-amber-300 transition-colors duration-300 transform hover:scale-110"
-                aria-label="Whatsapp"
-              >
-                <WhatsappIcon />
               </a>
               <a
                 href="/#"
