@@ -32,7 +32,7 @@ const Contact = () => {
       email: "",
       phone: "",
       business: "",
-      subject: contactData.subject,
+      subject: "Custom message",
       message: contactData.message,
     },
     validationSchema,
